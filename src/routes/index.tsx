@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import bannerImage from "@/assets/banner.png";
+import bannerImage from "@/assets/banner.webp";
 import { useState, useEffect, useRef } from "react";
 // Assumindo a instalação: npm install framer-motion
 import { motion, AnimatePresence, useScroll } from "framer-motion";
@@ -12,13 +12,9 @@ import inventarioImg from "@/assets/inventario.jpg";
 
 // --- IMPORTAÇÃO DE FUNDOS ---
 import fundoDepoimentos from "@/assets/fundo.jpg";
-import lpImage from "@/assets/lp.png";
-import sobreImage from "@/assets/sobre.png";
-import fundo2Image from "@/assets/fundo2.png";
-import quebraObjecaoAsset from "@/assets/quebra-objecao.jpg.asset.json";
-import ctaBgAsset from "@/assets/cta-bg.jpg.asset.json";
-import mobileBannerAsset from "@/assets/mobilebanner.png.asset.json";
-import logoAsset from "@/assets/logo.jpeg.asset.json";
+import lpImage from "@/assets/lp.webp";
+import sobreImage from "@/assets/sobre.webp";
+import fundo2Image from "@/assets/fundo2.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -96,7 +92,7 @@ function Index() {
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
-            src={mobileBannerAsset.url}
+            src={bannerImage}
             alt=""
             className="md:hidden h-full w-full object-cover object-center"
           />
@@ -117,14 +113,14 @@ function Index() {
 
         {/* Floating pill header */}
         <header className="relative z-20 flex items-center justify-center gap-4 px-4 pt-6 md:pt-8">
-          <motion.img
-            src={logoAsset.url}
-            alt="Bruna Mazieri Advocacia"
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: customEase }}
-            className="h-12 w-12 md:h-16 md:w-16 rounded-full object-cover shadow-2xl border border-[#c19e72]/30 shrink-0"
-          />
+            className="h-12 w-12 md:h-16 md:w-16 rounded-full bg-[#1a1a2e] shadow-2xl border border-[#c19e72]/30 shrink-0 flex items-center justify-center"
+          >
+            <span className="text-[#c19e72] font-display text-lg font-bold">BM</span>
+          </motion.div>
           <motion.nav
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -576,7 +572,7 @@ function QuebraObjecao() {
       <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: customEase }} className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-[#c19e72]/40 backdrop-blur-sm shadow-2xl z-10" style={{ background: "linear-gradient(135deg, rgba(234,221,207,0.95) 0%, rgba(224,193,148,0.85) 100%)" }}>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-0">
           <div className="relative h-72 md:h-full min-h-[420px] overflow-hidden">
-            <img src={quebraObjecaoAsset.url} alt="Atendimento humanizado" className="absolute inset-0 w-full h-full object-cover" />
+            <img src={fundoDepoimentos} alt="Atendimento humanizado" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#eaddcf]/30 md:to-[#eaddcf]/60" />
           </div>
           <div className="px-8 py-12 sm:px-12 sm:py-16 relative z-10">
@@ -688,7 +684,7 @@ function FAQSection() {
 function CTAFinal() {
   return (
     <section id="contato" className="relative bg-white px-6 py-32 overflow-hidden border-t border-zinc-200">
-      <img src={ctaBgAsset.url} alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+      <img src={fundoDepoimentos} alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white/70 pointer-events-none" />
       <motion.div initial={{ opacity: 0, scale: 0.95, y: 30 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: customEase }} className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl px-8 py-20 text-center shadow-2xl border border-[#c19e72]/40" style={{ background: "linear-gradient(135deg, #c19e72 0%, #a8875b 50%, #8a6e4a 100%)" }}>
         <h2 className="relative mb-8 text-3xl font-semibold leading-tight text-white sm:text-4xl" style={serif}>
@@ -727,7 +723,7 @@ function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           {/* Brand */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, ease: customEase }}>
-            <img src={logoAsset.url} alt="Bruna Mazieri Advocacia" className="h-28 w-28 rounded-lg object-cover mb-4" />
+            <span className="font-display text-2xl text-white font-bold">BM</span>
             <p className="mt-4 text-sm text-zinc-400 font-light leading-relaxed max-w-xs" style={sans}>
               Advocacia previdenciária técnica, transparente e humana. Defendendo seus direitos com precisão e clareza.
             </p>
