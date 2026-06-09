@@ -15,6 +15,7 @@ import fundoDepoimentos from "@/assets/fundo.jpg";
 import lpImage from "@/assets/lp.png";
 import sobreImage from "@/assets/sobre.png";
 import fundo2Image from "@/assets/fundo2.png";
+import quebraObjecaoAsset from "@/assets/quebra-objecao.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -424,7 +425,7 @@ function Atendimento() {
     <section className="relative bg-[#eaddcf] px-6 py-24 border-t border-white/5" ref={containerRef}>
       <img src={lpImage} alt="" className="absolute top-0 left-0 h-full w-full object-cover opacity-5 pointer-events-none mix-blend-luminosity" />
       <div className="mx-auto max-w-5xl relative z-10">
-        <SectionTitle kicker="Metodologia" textColor="text-[#1e3a8a]" kickerColor="text-[#1e3a8a]">Como é o meu atendimento</SectionTitle>
+        <SectionTitle kicker="Metodologia" textColor="text-[#16202c]" kickerColor="text-[#16202c]">Como é o meu atendimento</SectionTitle>
         <div className="relative mt-20 max-w-4xl mx-auto">
           <div className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[1px] bg-white/10 -translate-x-1/2" />
           <motion.div style={{ scaleY: scrollYProgress, transformOrigin: "top", boxShadow: `0 0 10px ${GOLD}` }} className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[#c19e72] -translate-x-1/2 z-0" />
@@ -497,14 +498,20 @@ function QuebraObjecao() {
       <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: `url(${guardaImg})`, backgroundSize: 'cover' }} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#c19e72]/10 blur-[150px] pointer-events-none rounded-full z-0" />
       
-      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: customEase }} className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl border border-[#c19e72]/40 px-8 py-16 sm:px-16 backdrop-blur-sm shadow-2xl z-10" style={{ background: "linear-gradient(135deg, rgba(234,221,207,0.95) 0%, rgba(224,193,148,0.85) 100%)" }}>
-        <div className="mx-auto text-center relative z-10">
-          <h2 className="mb-8 text-3xl font-semibold text-[#16202c] sm:text-4xl" style={serif}>
-            Resolva sua situação <span className="text-[#8a6e4a]">familiar.</span>
-          </h2>
-          <p className="text-base md:text-lg leading-relaxed text-zinc-800 font-light" style={sans}>
-            Nossa prioridade absoluta é buscar a resolução extrajudicial. Esse caminho evita os custos elevados e o desgaste emocional de um processo longo. Caso a via judicial seja necessária, atuamos com total transparência e estratégia. Mapeamos cada ato processual para antecipar cenários e blindar você contra novos conflitos, garantindo que o processo caminhe direto para o resultado.
-          </p>
+      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: customEase }} className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-[#c19e72]/40 backdrop-blur-sm shadow-2xl z-10" style={{ background: "linear-gradient(135deg, rgba(234,221,207,0.95) 0%, rgba(224,193,148,0.85) 100%)" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-0">
+          <div className="relative h-72 md:h-full min-h-[420px] overflow-hidden">
+            <img src={quebraObjecaoAsset.url} alt="Atendimento humanizado" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#eaddcf]/30 md:to-[#eaddcf]/60" />
+          </div>
+          <div className="px-8 py-12 sm:px-12 sm:py-16 relative z-10">
+            <h2 className="mb-6 text-3xl font-semibold text-[#16202c] sm:text-4xl" style={serif}>
+              Resolva sua situação <span className="text-[#8a6e4a]">familiar.</span>
+            </h2>
+            <p className="text-base leading-relaxed text-zinc-800 font-light" style={sans}>
+              Nossa prioridade absoluta é buscar a resolução extrajudicial. Esse caminho evita os custos elevados e o desgaste emocional de um processo longo. Caso a via judicial seja necessária, atuamos com total transparência e estratégia. Mapeamos cada ato processual para antecipar cenários e blindar você contra novos conflitos, garantindo que o processo caminhe direto para o resultado.
+            </p>
+          </div>
         </div>
       </motion.div>
     </section>
