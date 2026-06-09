@@ -18,6 +18,7 @@ import fundo2Image from "@/assets/fundo2.png";
 import quebraObjecaoAsset from "@/assets/quebra-objecao.jpg.asset.json";
 import ctaBgAsset from "@/assets/cta-bg.jpg.asset.json";
 import mobileBannerAsset from "@/assets/mobilebanner.png.asset.json";
+import logoAsset from "@/assets/logo.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
