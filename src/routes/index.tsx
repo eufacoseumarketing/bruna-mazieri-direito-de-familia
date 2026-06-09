@@ -541,7 +541,7 @@ function Sobre() {
   ];
   return (
     <section id="sobre" className="relative border-t border-zinc-200 bg-white px-6 py-24 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-[0.10] pointer-events-none" style={{ backgroundImage: `url(${fundo2Image})`, backgroundSize: 'cover' }} />
+      <div className="absolute inset-0 z-0 hidden md:block opacity-[0.10] pointer-events-none" style={{ backgroundImage: `url(${fundo2Image})`, backgroundSize: 'cover' }} />
       <div className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-14 lg:grid-cols-2 relative z-10">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
           <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#c19e72] font-semibold" style={sans}>Sobre</p>
