@@ -282,32 +282,130 @@ function Servicos() {
   );
 }
 
-// 2. DEPOIMENTOS (LIGHT + FUNDO IMAGEM)
+// 2. DEPOIMENTOS (LIGHT + FUNDO IMAGEM) — Carrossel
 function Depoimentos() {
   const items = [
-    { text: "A Dra. Bruna salvou minha sanidade mental no meu divórcio. Enquanto eu achava que ia durar anos, ela resolveu tudo com um acordo que protegeu meus filhos e patrimônio de forma rápida e humana.", author: "A. S., Sorocaba/SP" },
-    { text: "Atendimento extremamente discreto e estratégico. Recebi clareza sobre cada passo e jamais me senti perdida no processo judicial.", author: "M. R., São Paulo/SP" },
-    { text: "Conseguimos resolver o inventário da família sem brigas e em tempo recorde. Eternamente grata pela condução humana e técnica impecável.", author: "C. L., Campinas/SP" },
+    { name: "Ana Silva", city: "Sorocaba/SP", text: "A Dra. Bruna salvou minha sanidade mental no meu divórcio. Enquanto eu achava que ia durar anos, ela resolveu tudo com um acordo que protegeu meus filhos e patrimônio de forma rápida e humana." },
+    { name: "Mariana Rocha", city: "São Paulo/SP", text: "Atendimento extremamente discreto e estratégico. Recebi clareza sobre cada passo e jamais me senti perdida no processo judicial." },
+    { name: "Carla Lopes", city: "Campinas/SP", text: "Conseguimos resolver o inventário da família sem brigas e em tempo recorde. Eternamente grata pela condução humana e técnica impecável." },
+    { name: "Renata Pereira", city: "Itu/SP", text: "Fui acolhida em um momento muito difícil. A Dra. Bruna conduziu a guarda compartilhada do meu filho com total respeito e estratégia." },
+    { name: "Júlia Mendes", city: "Sorocaba/SP", text: "Profissionalismo raro. Em poucas semanas resolvemos a pensão alimentícia de forma justa e sem desgaste para ninguém." },
+    { name: "Patrícia Almeida", city: "Jundiaí/SP", text: "Recomendo de olhos fechados. Sentimento de segurança jurídica do início ao fim, com comunicação clara em cada etapa." },
+    { name: "Fernanda Castro", city: "Votorantim/SP", text: "Resolveu o divórcio consensual em cartório com agilidade impressionante. Saí leve e tranquila para iniciar uma nova fase." },
+    { name: "Beatriz Oliveira", city: "Tatuí/SP", text: "Atendimento humano de verdade. Senti que meu caso era tratado com a atenção que merecia, e o resultado superou minhas expectativas." },
   ];
+
+  const [index, setIndex] = useState(0);
+  const perView = 3;
+  const total = items.length;
+
+  useEffect(() => {
+    const t = setInterval(() => setIndex((p) => (p + 1) % total), 6000);
+    return () => clearInterval(t);
+  }, [total]);
+
+  const next = () => setIndex((p) => (p + 1) % total);
+  const prev = () => setIndex((p) => (p - 1 + total) % total);
+
+  const initials = (name: string) =>
+    name.split(" ").map((n) => n[0]).slice(0, 2).join("").toUpperCase();
+
+  const visible = Array.from({ length: perView }, (_, i) => items[(index + i) % total]);
+
   return (
     <section id="depoimentos" className="relative border-t border-zinc-200 bg-white px-6 py-24 overflow-hidden">
-      {/* Imagem de Fundo Restaurada com Opacidade no fundo claro */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: `url(${fundoDepoimentos})`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'grayscale(100%)' }} />
       <div className="absolute inset-0 bg-white/90 z-0" />
-      
-      <div className="relative mx-auto max-w-5xl z-10">
+
+      <div className="relative mx-auto max-w-6xl z-10">
         <SectionTitle textColor="text-[#16202c]">O que nossos clientes estão falando</SectionTitle>
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="grid grid-cols-1 gap-8 md:grid-cols-3 mt-16">
-          {items.map((t, i) => (
-            <motion.figure key={i} variants={fadeInUp} whileHover={{ ...hover3DEffectReverse, boxShadow: `0 15px 40px rgba(0,0,0,0.1)`}} className="relative rounded-2xl border border-zinc-200 bg-white p-9 transition-all duration-500 flex flex-col shadow-sm hover:border-[#c19e72]/50" style={{ perspective: "1000px" }}>
-              <div className="mb-6 text-6xl leading-none text-[#c19e72]/60" style={serif}>“</div>
-              <blockquote className="text-base leading-relaxed text-zinc-700 flex-grow font-light" style={sans}>{t.text}</blockquote>
-              <figcaption className="mt-8 pt-6 border-t border-zinc-100 text-sm font-medium text-[#16202c] tracking-wide" style={sans}>— {t.author}</figcaption>
-            </motion.figure>
-          ))}
-        </motion.div>
+
+        <div className="relative mt-12">
+          {/* Mobile: single card */}
+          <div className="md:hidden">
+            <AnimatePresence mode="wait">
+              <motion.figure
+                key={index}
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -40 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="relative rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm flex flex-col"
+              >
+                <TestimonialCardInner t={items[index]} initials={initials} />
+              </motion.figure>
+            </AnimatePresence>
+          </div>
+
+          {/* Desktop: 3 cards */}
+          <div className="hidden md:grid grid-cols-3 gap-8">
+            {visible.map((t, i) => (
+              <AnimatePresence key={`${index}-${i}`} mode="wait">
+                <motion.figure
+                  key={`${index}-${i}-${t.name}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="relative rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm hover:border-[#c19e72]/50 hover:shadow-xl transition-all flex flex-col"
+                >
+                  <TestimonialCardInner t={t} initials={initials} />
+                </motion.figure>
+              </AnimatePresence>
+            ))}
+          </div>
+
+          {/* Controls */}
+          <div className="mt-10 flex items-center justify-center gap-4">
+            <button
+              onClick={prev}
+              aria-label="Anterior"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[#c19e72]/40 bg-white text-[#16202c] transition-all hover:bg-[#c19e72] hover:text-white"
+            >
+              ←
+            </button>
+            <div className="flex items-center gap-2">
+              {items.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIndex(i)}
+                  aria-label={`Ir para depoimento ${i + 1}`}
+                  className={`h-2 rounded-full transition-all ${i === index ? "w-8 bg-[#c19e72]" : "w-2 bg-zinc-300 hover:bg-zinc-400"}`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={next}
+              aria-label="Próximo"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[#c19e72]/40 bg-white text-[#16202c] transition-all hover:bg-[#c19e72] hover:text-white"
+            >
+              →
+            </button>
+          </div>
+        </div>
       </div>
     </section>
+  );
+}
+
+function TestimonialCardInner({ t, initials }: { t: { name: string; city: string; text: string }; initials: (n: string) => string }) {
+  return (
+    <>
+      <div className="mb-4 text-5xl leading-none text-[#c19e72]/60" style={serif}>“</div>
+      <blockquote className="text-base leading-relaxed text-zinc-700 flex-grow font-light" style={sans}>{t.text}</blockquote>
+      <figcaption className="mt-8 pt-6 border-t border-zinc-100 flex items-center gap-4" style={sans}>
+        <div
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white font-semibold text-sm shadow-md"
+          style={{ background: "linear-gradient(135deg, #c19e72 0%, #8a6e4a 100%)", fontFamily: "var(--font-serif)" }}
+        >
+          {initials(t.name)}
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-[#16202c]">{t.name}</p>
+          <p className="text-xs text-zinc-500">{t.city}</p>
+        </div>
+      </figcaption>
+    </>
   );
 }
 
