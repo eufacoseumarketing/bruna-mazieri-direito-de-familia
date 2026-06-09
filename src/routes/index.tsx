@@ -17,6 +17,7 @@ import sobreImage from "@/assets/sobre.png";
 import fundo2Image from "@/assets/fundo2.png";
 import quebraObjecaoAsset from "@/assets/quebra-objecao.jpg.asset.json";
 import ctaBgAsset from "@/assets/cta-bg.jpg.asset.json";
+import mobileBannerAsset from "@/assets/mobilebanner.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -87,7 +88,15 @@ function Index() {
             transition={{ duration: 2, ease: "easeOut" }}
             src={bannerImage}
             alt=""
-            className="h-full w-full object-cover object-center"
+            className="hidden md:block h-full w-full object-cover object-center"
+          />
+          <motion.img
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+            src={mobileBannerAsset.url}
+            alt=""
+            className="md:hidden h-full w-full object-cover object-center"
           />
           <div
             className="absolute inset-0"
