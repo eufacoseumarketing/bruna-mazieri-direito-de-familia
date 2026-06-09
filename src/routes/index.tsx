@@ -706,7 +706,7 @@ function Footer() {
 
         <div className="mt-14 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-light" style={sans}>
           <p>© {new Date().getFullYear()} Bruna Mazieri Advocacia. Todos os direitos reservados.</p>
-          <p>Desenvolvido por <span className="text-[#c19e72]">EFSM</span></p>
+          <p>Desenvolvido por <a href="https://lp.eufacoseu.marketing?utm_source=brunamazieri&utm_medium=footer&utm_campaign=site" target="_blank" rel="noopener noreferrer" className="text-[#c19e72] hover:underline">EFSM</a></p>
         </div>
       </div>
     </footer>
