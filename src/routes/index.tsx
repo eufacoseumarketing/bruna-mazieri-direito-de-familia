@@ -273,7 +273,7 @@ function Servicos() {
           ))}
         </motion.div>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.8 }} className="mt-16 text-center">
-          <a href="#contato" className="inline-flex items-center gap-3 rounded-full bg-[#c19e72] px-8 py-4 text-base font-medium text-[#16202c] transition-all hover:bg-[#d4ad7c] hover:scale-105 shadow-lg" style={sans}>
+          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full bg-[#c19e72] px-8 py-4 text-base font-medium text-[#16202c] transition-all hover:bg-[#d4ad7c] hover:scale-105 shadow-lg" style={sans}>
             Agendar uma consulta estratégica <span aria-hidden>→</span>
           </a>
         </motion.div>
@@ -349,7 +349,7 @@ function Atendimento() {
           })}
         </div>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.5 }} className="mt-20 text-center">
-          <a href="#contato" className="inline-flex items-center gap-3 rounded-full bg-[#c19e72] px-8 py-4 text-base font-medium text-[#16202c] transition-all hover:bg-[#d4ad7c] hover:scale-105 shadow-lg" style={sans}>
+          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full bg-[#c19e72] px-8 py-4 text-base font-medium text-[#16202c] transition-all hover:bg-[#d4ad7c] hover:scale-105 shadow-lg" style={sans}>
             Quero iniciar meu atendimento <span aria-hidden>→</span>
           </a>
         </motion.div>
@@ -463,7 +463,7 @@ function PorQueMeMarquee() {
       </div>
       
       <div className="mt-16 text-center">
-        <a href="#contato" className="inline-flex items-center gap-3 rounded-full bg-[#16202c] px-8 py-4 text-base font-medium text-white transition-all hover:bg-[#2a3a4d] hover:scale-105 shadow-lg" style={sans}>
+        <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full bg-[#16202c] px-8 py-4 text-base font-medium text-white transition-all hover:bg-[#2a3a4d] hover:scale-105 shadow-lg" style={sans}>
           Falar com a Dra. Bruna <span aria-hidden>→</span>
         </a>
       </div>
@@ -515,7 +515,7 @@ function CTAFinal() {
         <p className="relative mx-auto mb-10 max-w-2xl text-base leading-relaxed text-white/90 font-medium" style={sans}>
           Resolva esse conflito com tranquilidade. É possível resolver de forma extrajudicial, com menos custos e burocracia, resguardando o emocional da sua família.
         </p>
-        <motion.a href="#contato" whileHover={{ scale: 1.05, boxShadow: `0 10px 30px rgba(0,0,0,0.3)`}} whileTap={{ scale: 0.98 }} className="relative inline-flex items-center gap-3 rounded-full bg-[#16202c] px-10 py-5 text-base font-semibold text-white transition-all hover:bg-black group" style={sans}>
+        <motion.a href={WA_LINK} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05, boxShadow: `0 10px 30px rgba(0,0,0,0.3)`}} whileTap={{ scale: 0.98 }} className="relative inline-flex items-center gap-3 rounded-full bg-[#16202c] px-10 py-5 text-base font-semibold text-white transition-all hover:bg-black group" style={sans}>
           Agende sua consulta estratégica <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }} aria-hidden>→</motion.span>
         </motion.a>
       </motion.div>
