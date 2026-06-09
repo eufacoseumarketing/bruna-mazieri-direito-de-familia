@@ -32,6 +32,7 @@ export const Route = createFileRoute("/")({
 const serif = { fontFamily: "var(--font-serif)" };
 const sans = { fontFamily: "var(--font-sans)" };
 const GOLD = "#c19e72";
+const WA_LINK = "https://api.whatsapp.com/send?phone=5515996142970&text=Quero%20falar%20com%20a%20Dra.%20Bruna%20Mazieri";
 
 // Variantes de Animação
 const customEase = [0.16, 1, 0.3, 1];
