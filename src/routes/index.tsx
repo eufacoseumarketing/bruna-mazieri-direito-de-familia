@@ -395,16 +395,16 @@ function Sobre() {
 // 5. QUEBRA DE OBJEÇÃO (DARK + FUNDO IMAGEM)
 function QuebraObjecao() {
   return (
-    <section className="relative bg-[#16202c] px-6 py-24 border-t border-white/5 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url(${guardaImg})`, backgroundSize: 'cover' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#c19e72]/5 blur-[150px] pointer-events-none rounded-full z-0" />
+    <section className="relative bg-[#eaddcf] px-6 py-24 border-t border-white/5 overflow-hidden">
+      <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: `url(${guardaImg})`, backgroundSize: 'cover' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#c19e72]/10 blur-[150px] pointer-events-none rounded-full z-0" />
       
-      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: customEase }} className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl border border-[#c19e72]/30 px-8 py-16 sm:px-16 backdrop-blur-sm shadow-2xl z-10" style={{ background: "linear-gradient(135deg, rgba(22,32,44,0.9) 0%, rgba(10,8,7,0.95) 100%)" }}>
+      <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: customEase }} className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl border border-[#c19e72]/40 px-8 py-16 sm:px-16 backdrop-blur-sm shadow-2xl z-10" style={{ background: "linear-gradient(135deg, rgba(234,221,207,0.95) 0%, rgba(224,193,148,0.85) 100%)" }}>
         <div className="mx-auto text-center relative z-10">
-          <h2 className="mb-8 text-3xl font-semibold text-white sm:text-4xl" style={serif}>
-            Resolva sua situação <span className="text-[#c19e72]">familiar.</span>
+          <h2 className="mb-8 text-3xl font-semibold text-[#16202c] sm:text-4xl" style={serif}>
+            Resolva sua situação <span className="text-[#8a6e4a]">familiar.</span>
           </h2>
-          <p className="text-base md:text-lg leading-relaxed text-zinc-300 font-light" style={sans}>
+          <p className="text-base md:text-lg leading-relaxed text-zinc-800 font-light" style={sans}>
             Nossa prioridade absoluta é buscar a resolução extrajudicial. Esse caminho evita os custos elevados e o desgaste emocional de um processo longo. Caso a via judicial seja necessária, atuamos com total transparência e estratégia. Mapeamos cada ato processual para antecipar cenários e blindar você contra novos conflitos, garantindo que o processo caminhe direto para o resultado.
           </p>
         </div>
