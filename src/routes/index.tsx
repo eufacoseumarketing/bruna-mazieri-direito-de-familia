@@ -15,6 +15,7 @@ import fundoDepoimentos from "@/assets/fundo.jpg";
 import lpImage from "@/assets/lp.webp";
 import sobreImage from "@/assets/sobre.webp";
 import fundo2Image from "@/assets/fundo2.webp";
+import logoImg from "@/assets/logo.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -113,14 +114,14 @@ function Index() {
 
         {/* Floating pill header */}
         <header className="relative z-20 flex items-center justify-center gap-4 px-4 pt-6 md:pt-8">
-          <motion.div
+          <motion.img
+            src={logoImg}
+            alt="Bruna Mazieri Advocacia"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: customEase }}
-            className="h-12 w-12 md:h-16 md:w-16 rounded-full bg-[#1a1a2e] shadow-2xl border border-[#c19e72]/30 shrink-0 flex items-center justify-center"
-          >
-            <span className="text-[#c19e72] font-display text-lg font-bold">BM</span>
-          </motion.div>
+            className="h-12 w-12 md:h-16 md:w-16 rounded-full object-cover shadow-2xl border border-[#c19e72]/30 shrink-0"
+          />
           <motion.nav
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -723,7 +724,7 @@ function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           {/* Brand */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, ease: customEase }}>
-            <span className="font-display text-2xl text-white font-bold">BM</span>
+            <img src={logoImg} alt="Bruna Mazieri Advocacia" className="h-28 w-28 rounded-lg object-cover mb-4" />
             <p className="mt-4 text-sm text-zinc-400 font-light leading-relaxed max-w-xs" style={sans}>
               Advocacia previdenciária técnica, transparente e humana. Defendendo seus direitos com precisão e clareza.
             </p>
