@@ -109,7 +109,15 @@ function Index() {
         </div>
 
         {/* Floating pill header */}
-        <header className="relative z-20 flex justify-center px-6 pt-8">
+        <header className="relative z-20 flex items-center justify-center gap-4 px-6 pt-8">
+          <motion.img
+            src={logoAsset.url}
+            alt="Bruna Mazieri Advocacia"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: customEase }}
+            className="hidden md:block h-16 w-16 rounded-full object-cover shadow-2xl border border-[#c19e72]/30"
+          />
           <motion.nav
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
