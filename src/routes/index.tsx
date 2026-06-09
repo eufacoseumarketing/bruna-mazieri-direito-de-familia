@@ -157,7 +157,7 @@ function Index() {
         </header>
 
         {/* Hero content - Original layout restored */}
-        <section className="relative z-20 mx-auto grid w-full flex-grow max-w-7xl grid-cols-1 items-center gap-0 px-6 py-32 md:py-48 lg:grid-cols-1 overflow-visible">
+        <section className="relative z-20 mx-auto grid w-full flex-grow max-w-7xl grid-cols-1 items-end md:items-center gap-0 px-6 pt-44 pb-16 md:py-48 lg:grid-cols-1 overflow-visible">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-2xl pb-8 relative">
 
             <motion.h1 variants={fadeInUp} className="text-3xl font-semibold leading-[1.15] text-white sm:text-4xl lg:text-5xl" style={serif}>
