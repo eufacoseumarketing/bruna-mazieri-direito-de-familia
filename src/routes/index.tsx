@@ -119,7 +119,9 @@ function Index() {
               ))}
             </ul>
             <a
-              href="#contato"
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-[#16202c] px-7 py-2 text-lg text-white transition-all hover:scale-[1.02] hover:bg-zinc-800"
               style={{...serif, ...neonGlow}}
             >
@@ -150,7 +152,7 @@ function Index() {
             </motion.div>
 
             <motion.div variants={fadeInUp} className="mt-10">
-              <a href="#contato" className="inline-flex items-center gap-3 rounded-full bg-[#c19e72] px-8 py-4 text-base font-medium text-[#16202c] transition-all hover:bg-[#d4ad7c] hover:scale-105 group" style={{...sans, boxShadow: `0 4px 15px rgba(193, 158, 114, 0.4)`}}>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full bg-[#c19e72] px-8 py-4 text-base font-medium text-[#16202c] transition-all hover:bg-[#d4ad7c] hover:scale-105 group" style={{...sans, boxShadow: `0 4px 15px rgba(193, 158, 114, 0.4)`}}>
                 Quero falar com a Dra. Bruna
                 <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }} aria-hidden>→</motion.span>
               </a>
