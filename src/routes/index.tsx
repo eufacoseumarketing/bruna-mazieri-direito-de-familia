@@ -102,6 +102,12 @@ function Index() {
           <div
             className="absolute inset-0"
             style={{
+              background: "linear-gradient(180deg, rgba(22,32,44,0.4) 0%, rgba(22,32,44,0.7) 60%, #16202c 100%)",
+            }}
+          />
+          <div
+            className="absolute inset-0 hidden md:block"
+            style={{
               background: "linear-gradient(90deg, #16202c 0%, #16202c 30%, rgba(22,32,44,0.6) 40%, rgba(22,32,44,0.1) 70%)",
             }}
           />
@@ -109,26 +115,26 @@ function Index() {
         </div>
 
         {/* Floating pill header */}
-        <header className="relative z-20 flex items-center justify-center gap-4 px-6 pt-8">
+        <header className="relative z-20 flex items-center justify-center gap-4 px-4 pt-6 md:pt-8">
           <motion.img
             src={logoAsset.url}
             alt="Bruna Mazieri Advocacia"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: customEase }}
-            className="hidden md:block h-16 w-16 rounded-full object-cover shadow-2xl border border-[#c19e72]/30"
+            className="h-12 w-12 md:h-16 md:w-16 rounded-full object-cover shadow-2xl border border-[#c19e72]/30 shrink-0"
           />
           <motion.nav
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.5, ease: customEase }}
-            className="flex items-center gap-2 rounded-full px-3 py-2 shadow-2xl border border-[#c19e72]/20"
+            className="flex items-center gap-2 rounded-full px-2 py-1.5 md:px-3 md:py-2 shadow-2xl border border-[#c19e72]/20"
             style={{
               background: "linear-gradient(180deg, #e8c79a 0%, #d4ad7c 50%, #c19e72 100%)",
               boxShadow: `0 4px 20px rgba(22,32,44,0.8), 0 0 10px rgba(193, 158, 114, 0.2)`
             }}
           >
-            <ul className="flex items-center gap-8 px-6" style={serif}>
+            <ul className="hidden md:flex items-center gap-8 px-6" style={serif}>
               {["início", "serviços", "sobre", "depoimentos"].map((item) => (
                 <li key={item}>
                   <a href={`#${item}`} className="text-xl text-[#16202c] transition-colors hover:text-[#2a1a0d] relative group font-medium">
@@ -142,7 +148,7 @@ function Index() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-[#16202c] px-7 py-2 text-lg text-white transition-all hover:scale-[1.02] hover:bg-zinc-800"
+              className="rounded-full bg-[#16202c] px-5 py-2 text-sm md:px-7 md:text-lg text-white transition-all hover:scale-[1.02] hover:bg-zinc-800 whitespace-nowrap"
               style={{...serif, ...neonGlow}}
             >
               contato
@@ -151,10 +157,10 @@ function Index() {
         </header>
 
         {/* Hero content - Original layout restored */}
-        <section className="relative z-20 mx-auto grid w-full flex-grow max-w-7xl grid-cols-0 items-center gap-0 px-0 py-48 lg:grid-cols-1 overflow-visible">
+        <section className="relative z-20 mx-auto grid w-full flex-grow max-w-7xl grid-cols-1 items-center gap-0 px-6 py-20 md:py-48 lg:grid-cols-1 overflow-visible">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-2xl pb-8 relative">
 
-            <motion.h1 variants={fadeInUp} className="text-4xl font-semibold leading-[1.1] text-white sm:text-4xl lg:text-5xl" style={serif}>
+            <motion.h1 variants={fadeInUp} className="text-3xl font-semibold leading-[1.15] text-white sm:text-4xl lg:text-5xl" style={serif}>
               Proteja seus filhos, patrimônio e estabilidade emocional diante de{" "}
               <motion.span
                 animate={{ textShadow: [`0 0 5px ${GOLD}`, `0 0 15px ${GOLD}`, `0 0 5px ${GOLD}`] }}
