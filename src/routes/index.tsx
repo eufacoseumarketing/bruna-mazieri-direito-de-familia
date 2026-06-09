@@ -106,7 +106,7 @@ function Index() {
           <div
             className="absolute inset-0 hidden md:block"
             style={{
-              background: "linear-gradient(90deg, #16202c 0%, #16202c 30%, rgba(22,32,44,0.6) 40%, rgba(22,32,44,0.1) 70%)",
+              background: "linear-gradient(90deg, #16202c 0%, #16202c 20%, rgba(22,32,44,0.3) 40%, rgba(22,32,44,0.0) 65%)",
             }}
           />
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#16202c] to-transparent pointer-events-none" />
