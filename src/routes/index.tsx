@@ -18,6 +18,7 @@ import fundo2Image from "@/assets/fundo2.png";
 import quebraObjecaoAsset from "@/assets/quebra-objecao.jpg.asset.json";
 import ctaBgAsset from "@/assets/cta-bg.jpg.asset.json";
 import mobileBannerAsset from "@/assets/mobilebanner.png.asset.json";
+import logoAsset from "@/assets/logo.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -108,7 +109,15 @@ function Index() {
         </div>
 
         {/* Floating pill header */}
-        <header className="relative z-20 flex justify-center px-6 pt-8">
+        <header className="relative z-20 flex items-center justify-center gap-4 px-6 pt-8">
+          <motion.img
+            src={logoAsset.url}
+            alt="Bruna Mazieri Advocacia"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: customEase }}
+            className="hidden md:block h-16 w-16 rounded-full object-cover shadow-2xl border border-[#c19e72]/30"
+          />
           <motion.nav
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -662,8 +671,7 @@ function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           {/* Brand */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, ease: customEase }}>
-            <p className="text-2xl text-[#c19e72] font-semibold leading-tight" style={serif}>Bruna Mazieri</p>
-            <p className="text-lg text-[#c19e72]/80 font-light" style={serif}>Advocacia</p>
+            <img src={logoAsset.url} alt="Bruna Mazieri Advocacia" className="h-28 w-28 rounded-lg object-cover mb-4" />
             <p className="mt-4 text-sm text-zinc-400 font-light leading-relaxed max-w-xs" style={sans}>
               Advocacia previdenciária técnica, transparente e humana. Defendendo seus direitos com precisão e clareza.
             </p>
