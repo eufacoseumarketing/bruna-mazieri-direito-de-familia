@@ -77,6 +77,7 @@ const neonGlow = {
 };
 
 function Index() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <main className="relative w-full bg-[#16202c] text-white">
       {/* Wrapper principal do Hero Original */}
@@ -144,6 +145,27 @@ function Index() {
                 </li>
               ))}
             </ul>
+            <button
+              type="button"
+              aria-label="Abrir menu"
+              onClick={() => setMobileMenuOpen((v) => !v)}
+              className="md:hidden flex items-center justify-center h-9 w-9 rounded-full text-[#16202c] hover:bg-[#16202c]/10 transition-colors"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                {mobileMenuOpen ? (
+                  <>
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                  </>
+                ) : (
+                  <>
+                    <line x1="3" y1="7" x2="21" y2="7" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="17" x2="21" y2="17" />
+                  </>
+                )}
+              </svg>
+            </button>
             <a
               href={WA_LINK}
               target="_blank"
@@ -155,6 +177,34 @@ function Index() {
             </a>
           </motion.nav>
         </header>
+
+        {/* Mobile menu dropdown */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25, ease: customEase }}
+              className="md:hidden absolute top-20 left-4 right-4 z-30 rounded-2xl border border-[#c19e72]/30 shadow-2xl overflow-hidden"
+              style={{ background: "linear-gradient(180deg, #e8c79a 0%, #d4ad7c 50%, #c19e72 100%)" }}
+            >
+              <ul className="flex flex-col py-2" style={serif}>
+                {["início", "serviços", "sobre", "depoimentos"].map((item) => (
+                  <li key={item}>
+                    <a
+                      href={`#${item}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-6 py-3 text-lg text-[#16202c] font-medium hover:bg-[#16202c]/10 transition-colors"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Hero content - Original layout restored */}
         <section className="relative z-20 mx-auto grid w-full flex-grow max-w-7xl grid-cols-1 items-end md:items-center gap-0 px-6 pt-44 pb-16 md:py-48 lg:grid-cols-1 overflow-visible">
