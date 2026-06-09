@@ -671,8 +671,7 @@ function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           {/* Brand */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, ease: customEase }}>
-            <p className="text-2xl text-[#c19e72] font-semibold leading-tight" style={serif}>Bruna Mazieri</p>
-            <p className="text-lg text-[#c19e72]/80 font-light" style={serif}>Advocacia</p>
+            <img src={logoAsset.url} alt="Bruna Mazieri Advocacia" className="h-28 w-28 rounded-lg object-cover mb-4" />
             <p className="mt-4 text-sm text-zinc-400 font-light leading-relaxed max-w-xs" style={sans}>
               Advocacia previdenciária técnica, transparente e humana. Defendendo seus direitos com precisão e clareza.
             </p>
