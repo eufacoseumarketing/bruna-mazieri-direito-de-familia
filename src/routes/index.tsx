@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import bannerImage from "@/assets/banner.webp";
+import mobileBanner from "@/assets/mobile-banner.webp";
 import { useState, useEffect, useRef } from "react";
 // Assumindo a instalação: npm install framer-motion
 import { motion, AnimatePresence, useScroll } from "framer-motion";
@@ -93,9 +94,9 @@ function Index() {
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
-            src={bannerImage}
+            src={mobileBanner}
             alt=""
-            className="md:hidden h-full w-full object-cover object-center"
+            className="md:hidden h-full w-full object-cover object-top"
           />
           <div
             className="absolute inset-0"
