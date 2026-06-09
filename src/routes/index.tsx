@@ -326,7 +326,7 @@ function Atendimento() {
     <section className="relative bg-[#eaddcf] px-6 py-24 border-t border-white/5" ref={containerRef}>
       <img src={lpImage} alt="" className="absolute top-0 left-0 h-full w-full object-cover opacity-5 pointer-events-none mix-blend-luminosity" />
       <div className="mx-auto max-w-5xl relative z-10">
-        <SectionTitle kicker="Metodologia">Como é o meu atendimento</SectionTitle>
+        <SectionTitle kicker="Metodologia" textColor="text-[#1e3a8a]" kickerColor="text-[#1e3a8a]">Como é o meu atendimento</SectionTitle>
         <div className="relative mt-20 max-w-4xl mx-auto">
           <div className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[1px] bg-white/10 -translate-x-1/2" />
           <motion.div style={{ scaleY: scrollYProgress, transformOrigin: "top", boxShadow: `0 0 10px ${GOLD}` }} className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[#c19e72] -translate-x-1/2 z-0" />
