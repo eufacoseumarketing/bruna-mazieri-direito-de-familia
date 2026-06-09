@@ -16,6 +16,7 @@ import lpImage from "@/assets/lp.png";
 import sobreImage from "@/assets/sobre.png";
 import fundo2Image from "@/assets/fundo2.png";
 import quebraObjecaoAsset from "@/assets/quebra-objecao.jpg.asset.json";
+import ctaBgAsset from "@/assets/cta-bg.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -613,6 +614,8 @@ function FAQSection() {
 function CTAFinal() {
   return (
     <section id="contato" className="relative bg-white px-6 py-32 overflow-hidden border-t border-zinc-200">
+      <img src={ctaBgAsset.url} alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white/70 pointer-events-none" />
       <motion.div initial={{ opacity: 0, scale: 0.95, y: 30 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: customEase }} className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl px-8 py-20 text-center shadow-2xl border border-[#c19e72]/40" style={{ background: "linear-gradient(135deg, #c19e72 0%, #a8875b 50%, #8a6e4a 100%)" }}>
         <h2 className="relative mb-8 text-3xl font-semibold leading-tight text-white sm:text-4xl" style={serif}>
           Retome o controle do seu futuro e conquiste a paz que você merece.
