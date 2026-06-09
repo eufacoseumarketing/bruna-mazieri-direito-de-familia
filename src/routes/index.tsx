@@ -597,11 +597,6 @@ function PorQueMeMarquee() {
     { title: "Experiência", desc: "15+ anos com soluções sob medida." },
     { title: "Acesso Fácil", desc: "Contato direto e ágil via WhatsApp." },
     { title: "Resultados", desc: "Foco na paz e segurança jurídica." },
-    // Array duplicado para dar o efeito de rolagem infinita
-    { title: "Pagamento Flexível", desc: "Suporte sem comprometer o orçamento." },
-    { title: "Experiência", desc: "15+ anos com soluções sob medida." },
-    { title: "Acesso Fácil", desc: "Contato direto e ágil via WhatsApp." },
-    { title: "Resultados", desc: "Foco na paz e segurança jurídica." },
   ];
 
   return (
@@ -612,33 +607,44 @@ function PorQueMeMarquee() {
           Conheça nossos diferenciais estratégicos e permita-nos resguardar os seus direitos.
         </p>
       </div>
-      
-      {/* Contêiner da Esteira Infinita */}
-      <div className="relative w-full flex overflow-hidden py-4 group">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
 
-        <motion.div 
-          className="flex gap-6 px-3 w-max"
-          animate={{ x: ["0%", "-50%"] }} // Movimenta 50% do tamanho total e reseta suavemente
-          transition={{ ease: "linear", duration: 15, repeat: Infinity }}
+      {/* Infinite marquee — two identical sets for seamless loop */}
+      <div className="relative w-full overflow-hidden py-4">
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+        <motion.div
+          className="flex gap-6 w-max"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ ease: "linear", duration: 25, repeat: Infinity }}
         >
+          {/* First set */}
           {items.map((it, i) => (
             <motion.div
-              key={i}
-              whileHover={{ scale: 1.05, y: -5, boxShadow: `0 15px 30px rgba(0,0,0,0.1)`, borderColor: GOLD }}
-              className="flex-shrink-0 w-72 flex flex-col rounded-2xl border border-zinc-200 bg-zinc-50 p-6 transition-all duration-300 cursor-default"
+              key={`a-${i}`}
+              whileHover={{ scale: 1.05, y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.1)", borderColor: GOLD }}
+              className="shrink-0 w-72 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 transition-all duration-300 cursor-default"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#16202c] to-[#2a3a4d] text-white font-bold mb-4 shadow-md" style={serif}>
-                ✓
-              </div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#16202c] to-[#2a3a4d] text-white font-bold mb-4 shadow-md" style={serif}>✓</div>
+              <h3 className="mb-2 text-lg font-semibold text-[#16202c]" style={serif}>{it.title}</h3>
+              <p className="text-sm text-zinc-600 font-light" style={sans}>{it.desc}</p>
+            </motion.div>
+          ))}
+          {/* Second set (identical) */}
+          {items.map((it, i) => (
+            <motion.div
+              key={`b-${i}`}
+              whileHover={{ scale: 1.05, y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.1)", borderColor: GOLD }}
+              className="shrink-0 w-72 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 transition-all duration-300 cursor-default"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#16202c] to-[#2a3a4d] text-white font-bold mb-4 shadow-md" style={serif}>✓</div>
               <h3 className="mb-2 text-lg font-semibold text-[#16202c]" style={serif}>{it.title}</h3>
               <p className="text-sm text-zinc-600 font-light" style={sans}>{it.desc}</p>
             </motion.div>
           ))}
         </motion.div>
       </div>
-      
+
       <div className="mt-16 text-center">
         <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full bg-[#16202c] px-8 py-4 text-base font-medium text-white transition-all hover:bg-[#2a3a4d] hover:scale-105 shadow-lg" style={sans}>
           Falar com a Dra. Bruna <span aria-hidden>→</span>
