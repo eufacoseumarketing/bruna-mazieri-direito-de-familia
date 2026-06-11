@@ -99,19 +99,9 @@ function Index() {
             alt=""
             className="md:hidden h-full w-full object-cover object-top"
           />
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(180deg, rgba(22,32,44,0.4) 0%, rgba(22,32,44,0.7) 60%, #16202c 100%)",
-            }}
-          />
-          <div
-            className="absolute inset-0 hidden md:block"
-            style={{
-              background: "linear-gradient(90deg, #16202c 0%, #16202c 15%, rgba(22,32,44,0.1) 40%, rgba(22,32,44,0.0) 55%)",
-            }}
-          />
-          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#16202c] to-transparent pointer-events-none" />
+
+
+          
         </div>
 
         {/* Floating pill header */}
