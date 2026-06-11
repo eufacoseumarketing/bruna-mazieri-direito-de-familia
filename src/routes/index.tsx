@@ -324,14 +324,14 @@ function Servicos() {
         <SectionTitle kicker="Áreas de Atuação" textColor="text-[#16202c]" kickerColor="text-[#c19e72]" containerClassName="">Como posso te ajudar?</SectionTitle>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-16">
           {items.map((s, i) => (
-            <motion.div key={i} variants={fadeInUp} whileHover={hover3DEffect} className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-black/30 backdrop-blur-sm" style={{ perspective: "1000px" }}>
+            <motion.div key={i} variants={fadeInUp} whileHover={hover3DEffect} className="group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-md" style={{ perspective: "1000px" }}>
               <div className="relative h-40 w-full shrink-0 overflow-hidden">
                 <img src={s.img} alt={s.title} className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#16202c] via-[#16202c]/40 to-transparent" />
               </div>
-              <div className="flex flex-col p-6 flex-grow bg-[#16202c]/50">
-                <h3 className="mb-3 text-lg text-white group-hover:text-[#c19e72] transition-colors duration-500" style={serif}>{s.title}</h3>
-                <p className="text-sm leading-relaxed text-zinc-400 font-light group-hover:text-zinc-200 transition-colors duration-500" style={sans}>{s.desc}</p>
+              <div className="flex flex-col p-6 flex-grow bg-white">
+                <h3 className="mb-3 text-lg text-[#16202c] group-hover:text-[#c19e72] transition-colors duration-500" style={serif}>{s.title}</h3>
+                <p className="text-sm leading-relaxed text-zinc-600 font-light group-hover:text-[#16202c] transition-colors duration-500" style={sans}>{s.desc}</p>
               </div>
               <div className="absolute inset-0 rounded-2xl transition-opacity duration-500 opacity-0 group-hover:opacity-100 pointer-events-none border border-[#c19e72]/0 group-hover:border-[#c19e72]/50" style={{boxShadow: `inset 0 0 20px rgba(193, 158, 114, 0.1)`}}/>
             </motion.div>
