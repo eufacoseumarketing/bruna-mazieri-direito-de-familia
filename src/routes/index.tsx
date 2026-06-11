@@ -79,7 +79,7 @@ function Index() {
   return (
     <main className="relative w-full bg-[#16202c] text-white">
       {/* Wrapper principal do Hero Original */}
-      <div className="relative min-h-screen w-full overflow-hidden flex flex-col">
+      <div className="relative min-h-[75vh] md:min-h-[90vh] w-full overflow-hidden flex flex-col">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <motion.img
@@ -107,7 +107,7 @@ function Index() {
           <div
             className="absolute inset-0 hidden md:block"
             style={{
-              background: "linear-gradient(90deg, #16202c 0%, #16202c 20%, rgba(22,32,44,0.3) 40%, rgba(22,32,44,0.0) 65%)",
+              background: "linear-gradient(90deg, #16202c 0%, #16202c 15%, rgba(22,32,44,0.1) 40%, rgba(22,32,44,0.0) 55%)",
             }}
           />
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#16202c] to-transparent pointer-events-none" />
@@ -268,8 +268,8 @@ function DiferenciaisCarrossel() {
   }, [items.length]);
 
   return (
-    <div className="w-full px-6 pb-6 md:pb-8">
-      <div className="mx-auto max-w-5xl">
+    <div className="w-full px-6 pb-6 md:pb-8 -mt-8 md:-mt-4">
+      <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.5, delay: 1, ease: customEase }}
           className="group relative overflow-hidden rounded-2xl border border-[#c19e72]/30 bg-[#16202c]/60 backdrop-blur-md transition-all"
@@ -330,7 +330,7 @@ function Servicos() {
     <section id="serviços" className="relative bg-[#eaddcf] px-6 py-24 border-t border-white/5 overflow-hidden">
       <div className="absolute -bottom-48 -right-48 w-96 h-96 bg-[#16202c]/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="relative mx-auto max-w-5xl z-10">
-        <SectionTitle kicker="Áreas de Atuação" textColor="text-[#16202c]" kickerColor="text-[#16202c]" containerClassName="bg-[#c19e72] p-4 rounded-lg shadow-lg">Como posso te ajudar?</SectionTitle>
+        <SectionTitle kicker="Áreas de Atuação" textColor="text-[#16202c]" kickerColor="text-[#c19e72]" containerClassName="">Como posso te ajudar?</SectionTitle>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-16">
           {items.map((s, i) => (
             <motion.div key={i} variants={fadeInUp} whileHover={hover3DEffect} className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-black/30 backdrop-blur-sm" style={{ perspective: "1000px" }}>
@@ -392,7 +392,7 @@ function Depoimentos() {
       <div className="absolute inset-0 bg-white/90 z-0" />
 
       <div className="relative mx-auto max-w-6xl z-10">
-        <SectionTitle textColor="text-[#16202c]">O que nossos clientes estão falando</SectionTitle>
+        <SectionTitle textColor="text-[#16202c]">Meus clientes estão falando</SectionTitle>
 
         <div className="relative mt-12">
           {/* Mobile: single card */}
@@ -495,17 +495,17 @@ function Atendimento() {
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start center", "end center"] });
 
   return (
-    <section className="relative bg-[#eaddcf] px-6 py-24 border-t border-white/5" ref={containerRef}>
+    <section className="relative bg-[#eaddcf] px-6 py-16 md:py-20 border-t border-white/5" ref={containerRef}>
       <img src={lpImage} alt="" className="absolute top-0 left-0 h-full w-full object-cover opacity-5 pointer-events-none mix-blend-luminosity" />
       <div className="mx-auto max-w-5xl relative z-10">
         <SectionTitle kicker="Metodologia" textColor="text-[#16202c]" kickerColor="text-[#16202c]">Como é o meu atendimento</SectionTitle>
-        <div className="relative mt-20 max-w-4xl mx-auto">
+        <div className="relative mt-12 max-w-4xl mx-auto">
           <div className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[1px] bg-white/10 -translate-x-1/2" />
           <motion.div style={{ scaleY: scrollYProgress, transformOrigin: "top", boxShadow: `0 0 10px ${GOLD}` }} className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[#c19e72] -translate-x-1/2 z-0" />
           {steps.map((s, i) => {
             const isEven = i % 2 === 0;
             return (
-              <div key={i} className={`relative z-10 flex flex-col md:flex-row ${isEven ? 'md:flex-row-reverse' : ''} justify-between items-start md:items-center mb-16 md:mb-24 w-full`}>
+              <div key={i} className={`relative z-10 flex flex-col md:flex-row ${isEven ? 'md:flex-row-reverse' : ''} justify-between items-start md:items-center mb-10 md:mb-14 w-full`}>
                 <div className="hidden md:block w-[45%]" />
                 <motion.div initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5, delay: 0.2 }} className="absolute left-[24px] md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-[#c19e72] bg-[#16202c] text-base font-bold text-[#c19e72] shadow-xl z-20" style={serif}>
                   {i + 1}
@@ -538,9 +538,9 @@ function Sobre() {
     "Foco em segurança jurídica e acolhimento.",
   ];
   return (
-    <section id="sobre" className="relative border-t border-zinc-200 bg-white px-6 py-24 overflow-hidden">
+    <section id="sobre" className="relative border-t border-zinc-200 bg-white px-6 py-12 md:py-16 overflow-hidden">
       <div className="absolute inset-0 z-0 hidden md:block opacity-[0.10] pointer-events-none" style={{ backgroundImage: `url(${fundo2Image})`, backgroundSize: 'cover' }} />
-      <div className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-14 lg:grid-cols-2 relative z-10">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-8 lg:grid-cols-2 relative z-10">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
           <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#c19e72] font-semibold" style={sans}>Sobre</p>
           <h2 className="mb-8 text-3xl font-semibold text-[#16202c] sm:text-4xl lg:text-5xl" style={serif}>Dra. Bruna Mazieri</h2>
@@ -556,7 +556,7 @@ function Sobre() {
           </ul>
         </motion.div>
         {/* Adicionado a imagem limpa da Doutora de volta no Sobre */}
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1.2, ease: customEase }} className="rounded-2xl overflow-hidden shadow-2xl border border-zinc-200">
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1.2, ease: customEase }} className="rounded-2xl overflow-hidden shadow-2xl border border-zinc-200 max-h-[400px] md:max-h-[500px]">
           <img src={sobreImage} alt="Dra. Bruna Mazieri" className="w-full h-auto object-cover" />
         </motion.div>
       </div>
@@ -601,8 +601,8 @@ function PorQueMeMarquee() {
   ];
 
   return (
-    <section className="relative border-t border-zinc-200 bg-white py-24 overflow-hidden">
-      <div className="mx-auto max-w-5xl px-6 mb-16 relative z-10">
+    <section className="relative border-t border-zinc-200 bg-white py-12 md:py-16 overflow-hidden">
+      <div className="mx-auto max-w-5xl px-6 mb-8 relative z-10">
         <SectionTitle kicker="Diferenciais" textColor="text-[#16202c]">Por que me escolher?</SectionTitle>
         <p className="mx-auto text-center text-base leading-relaxed text-zinc-600 font-light" style={sans}>
           Conheça nossos diferenciais estratégicos e permita-nos resguardar os seus direitos.
@@ -670,11 +670,11 @@ function FAQSection() {
       <div className="relative mx-auto max-w-4xl z-10">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp} className="mb-14 text-center">
           <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#c19e72] font-semibold" style={sans}>Dúvidas Frequentes</p>
-          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl text-white" style={serif}>FAQ jurídicos</h2>
+          <h2 className="text-3xl font-semibold sm:text-4xl lg:text-5xl text-white" style={serif}>FAQ</h2>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2, ease: customEase }} className="divide-y divide-white/5 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-sm mt-12 overflow-hidden shadow-2xl">
           {faqs.map((f, i) => (
-            <details key={i} className="group px-7 py-5 [&_summary::-webkit-details-marker]:hidden transition-colors duration-500 hover:bg-white/[0.02]">
+            <details key={i} open={i === 0} className="group px-7 py-5 [&_summary::-webkit-details-marker]:hidden transition-colors duration-500 hover:bg-white/[0.02]">
               <summary className="flex cursor-pointer items-center justify-between gap-6 text-left text-base text-white font-medium outline-none" style={serif}>
                 <span>{f.q}</span>
                 <motion.span animate={{ rotate: 0 }} className="text-2xl text-[#c19e72] shrink-0 group-open:rotate-45 transition-transform duration-300">+</motion.span>
