@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import bannerImage from "@/assets/banner.webp";
 import mobileBanner from "@/assets/mobile-banner.webp";
 import { useState, useEffect, useRef } from "react";
@@ -759,14 +759,14 @@ function Footer() {
               <li><a href="#serviços" className="hover:text-[#c19e72] transition-colors">Serviços</a></li>
               <li><a href="#sobre" className="hover:text-[#c19e72] transition-colors">Sobre</a></li>
               <li><a href="#faq" className="hover:text-[#c19e72] transition-colors">FAQ</a></li>
-              <li><a href="#" className="hover:text-[#c19e72] transition-colors">Política de Privacidade</a></li>
+              <li><Link to="/privacy" className="hover:text-[#c19e72] transition-colors">Política de Privacidade</Link></li>
             </ul>
           </motion.div>
         </div>
 
         <div className="mt-14 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-light" style={sans}>
           <p>© {new Date().getFullYear()} Bruna Mazieri Advocacia. Todos os direitos reservados.</p>
-          <p>Desenvolvido por <a href="https://lp.eufacoseu.marketing?utm_source=brunamazieri&utm_medium=footer&utm_campaign=site" target="_blank" rel="noopener noreferrer" className="text-[#c19e72] hover:underline">EFSM</a></p>
+          <p>Desenvolvido por <a href="https://lp.eufacoseu.marketing?utm_source=brunamazieri&utm_medium=footer&utm_campaign=site&utm_content=developer_credit&utm_term=advocacia_familia" target="_blank" rel="noopener noreferrer" className="text-[#c19e72] hover:underline">EFSM</a></p>
         </div>
       </div>
     </footer>
