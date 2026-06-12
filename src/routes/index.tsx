@@ -589,7 +589,7 @@ function PorQueMeMarquee() {
     { title: "Experiência", desc: "15+ anos com soluções sob medida." },
     { title: "Acesso Fácil", desc: "Contato direto e ágil via WhatsApp." },
     { title: "Resultados", desc: "Foco na paz e segurança jurídica." },
-    { title: "adequação a realidade do casal", desc: "Soluções que respeitam a dinâmica de cada casal." },
+    { title: "Adequação a realidade do casal", desc: "Soluções que respeitam a dinâmica de cada casal." },
   ];
 
   return (
