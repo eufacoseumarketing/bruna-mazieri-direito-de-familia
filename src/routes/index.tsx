@@ -383,7 +383,7 @@ function Depoimentos() {
       <div className="absolute inset-0 bg-white/90 z-0" />
 
       <div className="relative mx-auto max-w-6xl z-10">
-        <SectionTitle textColor="text-[#16202c]">Meus clientes estão falando</SectionTitle>
+        <SectionTitle textColor="text-[#16202c]">O que meus clientes estão falando</SectionTitle>
 
         <div className="relative mt-12">
           {/* Mobile: single card */}
@@ -694,7 +694,7 @@ function CTAFinal() {
           Resolva esse conflito com tranquilidade. É possível resolver de forma extrajudicial, com menos custos e burocracia, resguardando o emocional da sua família.
         </p>
         <motion.a href={WA_LINK} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05, boxShadow: `0 10px 30px rgba(0,0,0,0.3)`}} whileTap={{ scale: 0.98 }} className="relative inline-flex items-center gap-3 rounded-full bg-[#16202c] px-10 py-5 text-base font-semibold text-white transition-all hover:bg-black group" style={sans}>
-          Agende sua consulta estratégica <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }} aria-hidden>→</motion.span>
+          Falar com a Dra. Bruna <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }} aria-hidden>→</motion.span>
         </motion.a>
       </motion.div>
     </section>
