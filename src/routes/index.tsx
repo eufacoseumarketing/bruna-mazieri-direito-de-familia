@@ -313,9 +313,9 @@ function SectionTitle({ kicker, children, textColor = "text-white", kickerColor 
 function Servicos() {
   const items = [
     { title: "Divórcio Consensual e Litigioso", desc: "Resolução ágil na via extrajudicial (cartório) ou judicial.", img: divorcioImg },
-    { title: "Guarda e Regime de Convivência", desc: "Fixação focada no bem-estar da criança e equilíbrio parental, priorizando o modelo compartilhado.", img: guardaImg },
+    { title: "Guarda e Regime de Convivência", desc: "Fixação focada no bem-estar da criança e equilíbrio parental, priorizando sempre a realidade do casal.", img: guardaImg },
     { title: "Pensão Alimentícia", desc: "Fixação, revisão ou execução pautada no trinômio: necessidade, possibilidade e proporcionalidade.", img: pensaoImg },
-    { title: "Inventário e Sucessório", desc: "Organização patrimonial e partilha rápida e harmoniosa, evitando disputas longas e caras.", img: inventarioImg },
+    { title: "Inventário e Holding Familiar", desc: "O inventário é feito depois do falecimento para passar os bens aos herdeiros. A holding familiar permite planejar essa passagem antes, de forma mais organizada e eficiente..", img: inventarioImg },
   ];
   return (
     <section id="serviços" className="relative bg-[#eaddcf] px-6 py-24 border-t border-white/5 overflow-hidden">
@@ -504,7 +504,7 @@ function Atendimento() {
                 <motion.div initial={{ opacity: 0, x: isEven ? -30 : 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: customEase }} className="w-full md:w-[45%] pl-[60px] md:pl-0 pt-1 md:pt-0">
                   <motion.div whileHover={isEven ? hover3DEffectReverse : hover3DEffect} className="group relative rounded-2xl border border-white/5 bg-black/40 p-8 backdrop-blur-md transition-all hover:border-[#c19e72]/50 hover:bg-black/60" style={{ perspective: "1000px" }}>
                     <h3 className="mb-3 text-xl text-white group-hover:text-[#c19e72] transition-colors" style={serif}>{s.title}</h3>
-                    <p className="text-sm leading-relaxed text-zinc-400 font-light" style={sans}>{s.desc}</p>
+                  <p className="text-sm leading-relaxed text-[#16202c] font-light" style={sans}>{s.desc}</p>
                   </motion.div>
                 </motion.div>
               </div>
@@ -589,12 +589,13 @@ function PorQueMeMarquee() {
     { title: "Experiência", desc: "15+ anos com soluções sob medida." },
     { title: "Acesso Fácil", desc: "Contato direto e ágil via WhatsApp." },
     { title: "Resultados", desc: "Foco na paz e segurança jurídica." },
+    { title: "adequação a realidade do casal", desc: "Soluções que respeitam a dinâmica de cada casal." },
   ];
 
   return (
     <section className="relative border-t border-zinc-200 bg-white py-12 md:py-16 overflow-hidden">
       <div className="mx-auto max-w-5xl px-6 mb-8 relative z-10">
-        <SectionTitle kicker="Diferenciais" textColor="text-[#16202c]">Por que me escolher?</SectionTitle>
+        <SectionTitle kicker="Diferenciais" textColor="text-[#16202c]">Meus diferenciais</SectionTitle>
         <p className="mx-auto text-center text-base leading-relaxed text-zinc-600 font-light" style={sans}>
           Conheça nossos diferenciais estratégicos e permita-nos resguardar os seus direitos.
         </p>
@@ -724,7 +725,7 @@ function Footer() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, ease: customEase }}>
             <img src={logoImg} alt="Bruna Mazieri Advocacia" className="h-28 w-28 rounded-lg object-cover mb-4" />
             <p className="mt-4 text-sm text-zinc-400 font-light leading-relaxed max-w-xs" style={sans}>
-              Advocacia previdenciária técnica, transparente e humana. Defendendo seus direitos com precisão e clareza.
+              Advocacia técnica, transparente e humana. Defendendo seus direitos com precisão e clareza.
             </p>
           </motion.div>
 
