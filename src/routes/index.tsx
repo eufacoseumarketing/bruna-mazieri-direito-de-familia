@@ -6,13 +6,13 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 
 // --- IMPORTAÇÃO DAS IMAGENS DE SERVIÇOS ---
-import divorcioImg from "@/assets/divorcio.jpg";
-import guardaImg from "@/assets/guarda.jpg";
-import pensaoImg from "@/assets/pensao.jpg";
-import inventarioImg from "@/assets/inventario.jpg";
+import divorcioImg from "@/assets/divorcio.webp";
+import guardaImg from "@/assets/guarda.webp";
+import pensaoImg from "@/assets/pensao.webp";
+import inventarioImg from "@/assets/inventario.webp";
 
 // --- IMPORTAÇÃO DE FUNDOS ---
-import fundoDepoimentos from "@/assets/fundo.jpg";
+import fundoDepoimentos from "@/assets/fundo.webp";
 import ctaBg from "@/assets/cta-bg.webp";
 import lpImage from "@/assets/lp.webp";
 import sobreImage from "@/assets/sobre.webp";
@@ -89,6 +89,8 @@ function Index() {
             transition={{ duration: 2, ease: "easeOut" }}
             src={bannerImage}
             alt=""
+            fetchPriority="high"
+            loading="eager"
             className="hidden md:block h-full w-full object-cover object-center"
           />
           <motion.img
@@ -97,6 +99,8 @@ function Index() {
             transition={{ duration: 2, ease: "easeOut" }}
             src={mobileBanner}
             alt=""
+            fetchPriority="high"
+            loading="eager"
             className="md:hidden h-full w-full object-cover object-top"
           />
 
@@ -326,7 +330,7 @@ function Servicos() {
           {items.map((s, i) => (
             <motion.div key={i} variants={fadeInUp} whileHover={hover3DEffect} className="group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-md" style={{ perspective: "1000px" }}>
               <div className="relative h-40 w-full shrink-0 overflow-hidden">
-                <img src={s.img} alt={s.title} className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
+                <img src={s.img} alt={s.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#16202c] via-[#16202c]/40 to-transparent" />
               </div>
               <div className="flex flex-col p-6 flex-grow bg-white">
@@ -487,7 +491,7 @@ function Atendimento() {
 
   return (
     <section className="relative bg-[#eaddcf] px-6 py-16 md:py-20 border-t border-white/5" ref={containerRef}>
-      <img src={lpImage} alt="" className="absolute top-0 left-0 h-full w-full object-cover opacity-5 pointer-events-none mix-blend-luminosity" />
+      <img src={lpImage} alt="" loading="lazy" decoding="async" className="absolute top-0 left-0 h-full w-full object-cover opacity-5 pointer-events-none mix-blend-luminosity" />
       <div className="mx-auto max-w-5xl relative z-10">
         <SectionTitle kicker="Metodologia" textColor="text-[#16202c]" kickerColor="text-[#16202c]">Como é o meu atendimento</SectionTitle>
         <div className="relative mt-12 max-w-4xl mx-auto">
@@ -548,7 +552,7 @@ function Sobre() {
         </motion.div>
         {/* Adicionado a imagem limpa da Doutora de volta no Sobre */}
         <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1.2, ease: customEase }} className="rounded-2xl overflow-hidden shadow-2xl border border-zinc-200 max-h-[400px] md:max-h-[500px]">
-          <img src={sobreImage} alt="Dra. Bruna Mazieri" className="w-full h-auto object-cover" />
+          <img src={sobreImage} alt="Dra. Bruna Mazieri" loading="lazy" decoding="async" className="w-full h-auto object-cover" />
         </motion.div>
       </div>
     </section>
@@ -565,7 +569,7 @@ function QuebraObjecao() {
       <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: customEase }} className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-[#c19e72]/40 backdrop-blur-sm shadow-2xl z-10" style={{ background: "linear-gradient(135deg, rgba(234,221,207,0.95) 0%, rgba(224,193,148,0.85) 100%)" }}>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-0">
           <div className="relative h-72 md:h-full min-h-[420px] overflow-hidden">
-            <img src={fundoDepoimentos} alt="Atendimento humanizado" className="absolute inset-0 w-full h-full object-cover" />
+            <img src={fundoDepoimentos} alt="Atendimento humanizado" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#eaddcf]/30 md:to-[#eaddcf]/60" />
           </div>
           <div className="px-8 py-12 sm:px-12 sm:py-16 relative z-10">
@@ -684,7 +688,7 @@ function FAQSection() {
 function CTAFinal() {
   return (
     <section id="contato" className="relative bg-white px-6 py-32 overflow-hidden border-t border-zinc-200">
-      <img src={ctaBg} alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+      <img src={ctaBg} alt="" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white/70 pointer-events-none" />
       <motion.div initial={{ opacity: 0, scale: 0.95, y: 30 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: customEase }} className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl px-8 py-20 text-center shadow-2xl border border-[#c19e72]/40" style={{ background: "linear-gradient(135deg, #c19e72 0%, #a8875b 50%, #8a6e4a 100%)" }}>
         <h2 className="relative mb-8 text-3xl font-semibold leading-tight text-white sm:text-4xl" style={serif}>
@@ -723,7 +727,7 @@ function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           {/* Brand */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, ease: customEase }}>
-            <img src={logoImg} alt="Bruna Mazieri Advocacia" className="h-28 w-28 rounded-lg object-cover mb-4" />
+            <img src={logoImg} alt="Bruna Mazieri Advocacia" loading="lazy" decoding="async" className="h-28 w-28 rounded-lg object-cover mb-4" />
             <p className="mt-4 text-sm text-zinc-400 font-light leading-relaxed max-w-xs" style={sans}>
               Advocacia técnica, transparente e humana. Defendendo seus direitos com precisão e clareza.
             </p>
