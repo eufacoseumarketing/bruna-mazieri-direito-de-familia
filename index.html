@@ -14,8 +14,9 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://brunamazieri.adv.br/direito-de-familia/og-image.png" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code (carregado no idle do navegador, junto com o GTM) -->
 <script>
+function loadMetaPixel(){
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -26,9 +27,16 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '987255377548780');
 fbq('track', 'PageView');
+}
+(function(w,d){
+function onIdle(){
+  if ('requestIdleCallback' in w) { w.requestIdleCallback(loadMetaPixel, { timeout: 4000 }); } else { setTimeout(loadMetaPixel, 1500); }
+}
+if (d.readyState==='complete') { onIdle(); } else { w.addEventListener('load', onIdle); }
+})(window, document);
 </script>
 <!-- End Meta Pixel Code -->
-<!-- Google Tag Manager (carregamento adiado para não competir com o LCP) -->
+<!-- Google Tag Manager (carregado no idle do navegador, após a página ficar interativa, para não competir com o LCP/TBT) -->
 <script>(function(w,d,s,l,i){
 w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
 function loadGTM(){
@@ -36,7 +44,10 @@ function loadGTM(){
   j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
   f.parentNode.insertBefore(j,f);
 }
-if (d.readyState==='complete') { loadGTM(); } else { w.addEventListener('load', loadGTM); }
+function onIdle(){
+  if ('requestIdleCallback' in w) { w.requestIdleCallback(loadGTM, { timeout: 4000 }); } else { setTimeout(loadGTM, 1500); }
+}
+if (d.readyState==='complete') { onIdle(); } else { w.addEventListener('load', onIdle); }
 })(window,document,'script','dataLayer','GTM-55WBGPGQ');</script>
 <!-- End Google Tag Manager -->
   </head>
